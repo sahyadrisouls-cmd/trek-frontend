@@ -37,7 +37,7 @@ export default function AdminPage() {
  const [treks, setTreks] = useState<any[]>([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
-  const [editingTrek, setEditingTrek] = useState(null);  // trek to edit
+ const [editingTrek, setEditingTrek] = useState<any>(null);  // trek to edit
 
   const handleLogout = () => {
     localStorage.removeItem("token");
