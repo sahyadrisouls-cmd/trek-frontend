@@ -167,7 +167,7 @@ export default function CreateTrekModal({ isOpen, onClose }: Props) {
     if (!files) return;
 
     setGalleryUploading(true);
-    const uploadedImages = [];
+   const uploadedImages: any[] = [];
     const token = localStorage.getItem("token");
 
     for (let i = 0; i < files.length; i++) {
