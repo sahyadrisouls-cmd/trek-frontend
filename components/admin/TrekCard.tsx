@@ -41,7 +41,7 @@ export default function TrekCard({
     try {
 
       await fetch(
-        `http://localhost:5000/api/treks/${trek._id}`,
+        `https://trek-backend-ohi5.onrender.com/api/treks/${trek._id}`,
         {
           method: "DELETE",
         }

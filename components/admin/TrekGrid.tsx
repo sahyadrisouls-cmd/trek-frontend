@@ -34,7 +34,7 @@ export default function TrekGrid({ treks, onDelete, onEdit }: TrekGridProps) {
 
     setDeletingId(id);
     try {
-      const res = await fetch(`http://localhost:5000/api/treks/${id}`, {
+      const res = await fetch(`https://trek-backend-ohi5.onrender.com/api/treks/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

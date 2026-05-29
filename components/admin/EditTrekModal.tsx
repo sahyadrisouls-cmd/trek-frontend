@@ -87,7 +87,7 @@ export default function EditTrekModal({ trek, isOpen, onClose }: Props) {
     data.append("image", file);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/upload/image", data, {
+      const res = await axios.post("https://trek-backend-ohi5.onrender.com/api/upload/image", data, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -125,7 +125,7 @@ export default function EditTrekModal({ trek, isOpen, onClose }: Props) {
       const data = new FormData();
       data.append("image", files[i]);
       try {
-        const res = await axios.post("http://localhost:5000/api/upload/image", data, {
+        const res = await axios.post("https://trek-backend-ohi5.onrender.com/api/upload/image", data, {
           headers: { Authorization: `Bearer ${token}` },
         });
         uploadedImages.push({
@@ -169,7 +169,7 @@ export default function EditTrekModal({ trek, isOpen, onClose }: Props) {
       const data = new FormData();
       data.append("image", files[i]);
       try {
-        const res = await axios.post("http://localhost:5000/api/upload/image", data, {
+        const res = await axios.post("https://trek-backend-ohi5.onrender.com/api/upload/image", data, {
           headers: { Authorization: `Bearer ${token}` },
         });
         uploadedImages.push({
@@ -206,7 +206,7 @@ export default function EditTrekModal({ trek, isOpen, onClose }: Props) {
     }
 
     try {
-      const res = await fetch(`http://localhost:5000/api/treks/${trek._id}`, {
+      const res = await fetch(`https://trek-backend-ohi5.onrender.com/api/treks/${trek._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

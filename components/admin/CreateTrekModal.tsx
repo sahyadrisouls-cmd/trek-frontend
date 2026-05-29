@@ -93,7 +93,7 @@ export default function CreateTrekModal({ isOpen, onClose }: Props) {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post("http://localhost:5000/api/upload/image", data, {
+      const res = await axios.post("https://trek-backend-ohi5.onrender.com/api/upload/image", data, {
         headers: { Authorization: `Bearer ${token}` },
         onUploadProgress: (progressEvent) => {
           const percent = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 1));
@@ -129,7 +129,7 @@ export default function CreateTrekModal({ isOpen, onClose }: Props) {
       const uploadPromises = Array.from(files).map(async (file) => {
         const data = new FormData();
         data.append("image", file);
-        const res = await axios.post("http://localhost:5000/api/upload/image", data, {
+        const res = await axios.post("https://trek-backend-ohi5.onrender.com/api/upload/image", data, {
           headers: { Authorization: `Bearer ${token}` },
           onUploadProgress: (progressEvent) => {
             const percent = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 1));
@@ -174,7 +174,7 @@ export default function CreateTrekModal({ isOpen, onClose }: Props) {
       const data = new FormData();
       data.append("image", files[i]);
       try {
-        const res = await axios.post("http://localhost:5000/api/upload/image", data, {
+        const res = await axios.post("https://trek-backend-ohi5.onrender.com/api/upload/image", data, {
           headers: { Authorization: `Bearer ${token}` },
           onUploadProgress: (progressEvent) => {
             const percent = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 1));
@@ -215,7 +215,7 @@ export default function CreateTrekModal({ isOpen, onClose }: Props) {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/treks/add", {
+      const res = await fetch("https://trek-backend-ohi5.onrender.com/api/treks/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

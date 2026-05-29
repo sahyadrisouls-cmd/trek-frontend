@@ -14,7 +14,7 @@ import Footer from "../components/Footer";
 
 
 async function getTreks() {
-  const res = await fetch("http://localhost:5000/api/treks", {
+  const res = await fetch("https://trek-backend-ohi5.onrender.com/api/treks", {
     cache: "no-store",
   });
 

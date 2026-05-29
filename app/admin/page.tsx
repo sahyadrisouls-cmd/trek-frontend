@@ -24,7 +24,7 @@ const checkAdminAuth = (token: string): boolean => {
 
 async function getTreks() {
   try {
-    const res = await fetch("http://localhost:5000/api/treks", { cache: "no-store" });
+    const res = await fetch("https://trek-backend-ohi5.onrender.com/api/treks", { cache: "no-store" });
     const data = await res.json();
     return Array.isArray(data) ? data : [];
   } catch {

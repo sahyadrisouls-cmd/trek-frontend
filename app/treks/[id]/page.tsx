@@ -71,7 +71,7 @@ function getUrl(img: TrekImage | undefined | null, fallback = "/placeholder.jpg"
 
 async function getTrek(id: string): Promise<Trek> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}/api/treks/${id}`,
+    `${process.env.NEXT_PUBLIC_API_URL || "https://trek-backend-ohi5.onrender.com"}/api/treks/${id}`,
     { cache: "no-store" }
   );
   if (!res.ok) throw new Error("Failed to fetch trek");
@@ -167,7 +167,7 @@ export default function TrekDetails() {
     async function loadReviews() {
       if (!trek?.name) return;
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}/api/reviews`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "https://trek-backend-ohi5.onrender.com"}/api/reviews`);
         const data: Review[] = await res.json();
         setReviews(data.filter((r) => r.trekName?.toLowerCase() === trek.name?.toLowerCase()));
       } catch (err) { console.error(err); }
