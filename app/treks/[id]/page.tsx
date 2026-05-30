@@ -352,70 +352,101 @@ export default function TrekDetails() {
         {/* ════════════════════════════════════════════════════════════════════
              WHY CHOOSE / ABOUT – RESPONSIVE GRID
         ════════════════════════════════════════════════════════════════════ */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
-            {/* Left image rotator */}
-            <div className="order-2 lg:order-1">
-              {trek.trekImages.length > 0 ? (
-                <div className="space-y-4">
-                  <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                    <img
-                      src={trek.trekImages[aboutImgIdx]?.url || heroUrl}
-                      alt={trek.name}
-                      className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
-                    />
-                  </div>
-                  {trek.trekImages.length > 1 && (
-                    <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
-                      {trek.trekImages.map((img, i) => (
-                        <button
-                          key={img.public_id || i}
-                          onClick={() => setAboutImgIdx(i)}
-                          className={`w-16 sm:w-20 h-12 sm:h-16 rounded-lg overflow-hidden flex-shrink-0 transition-all ${
-                            i === aboutImgIdx ? "ring-2 ring-emerald-500" : "opacity-60 hover:opacity-100"
-                          }`}
-                        >
-                          <img src={img.url} className="w-full h-full object-cover" alt="" />
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <div className="rounded-2xl overflow-hidden shadow-2xl">
-                  <img src={heroUrl} alt={trek.name} className="w-full h-auto object-cover" />
-                </div>
-              )}
-            </div>
+       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 overflow-hidden">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
 
-            {/* Right content */}
-            <div className="order-1 lg:order-2">
-              <div className="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold tracking-wider mb-4 border border-emerald-500/30">
-                ABOUT THIS TREK
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight break-word">
-                Why Choose <span className="text-emerald-400">{trek.name}</span>?
-              </h2>
-              <p className="text-gray-300 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg break-word">
-                {trek.description}
-              </p>
-              <div className="border-t border-white/10 pt-6">
-                <h3 className="text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2">
-                  <span className="w-1 h-6 bg-emerald-500 rounded-full" /> Expedition Highlights
-                </h3>
-                <div className="grid sm:grid-cols-2 gap-2 sm:gap-3">
-                  {trek.highlights.map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 bg-white/5 p-2 sm:p-3 rounded-xl break-word">
-                      <span className="text-emerald-400 text-lg sm:text-xl flex-shrink-0">✓</span>
-                      <span className="text-gray-200 text-sm sm:text-base">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+    {/* Left image rotator */}
+    <div className="order-2 lg:order-1 min-w-0 overflow-hidden">
+      {trek.trekImages.length > 0 ? (
+        <div className="space-y-4">
+          <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            <img
+              src={trek.trekImages[aboutImgIdx]?.url || heroUrl}
+              alt={trek.name}
+              className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
+            />
           </div>
-        </section>
 
+          {trek.trekImages.length > 1 && (
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
+              {trek.trekImages.map((img, i) => (
+                <button
+                  key={img.public_id || i}
+                  onClick={() => setAboutImgIdx(i)}
+                  className={`w-16 sm:w-20 h-12 sm:h-16 rounded-lg overflow-hidden flex-shrink-0 transition-all ${
+                    i === aboutImgIdx
+                      ? "ring-2 ring-emerald-500"
+                      : "opacity-60 hover:opacity-100"
+                  }`}
+                >
+                  <img
+                    src={img.url}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="rounded-2xl overflow-hidden shadow-2xl">
+          <img
+            src={heroUrl}
+            alt={trek.name}
+            className="w-full h-auto object-cover"
+          />
+        </div>
+      )}
+    </div>
+
+    {/* Right content */}
+    <div className="order-1 lg:order-2 min-w-0 overflow-hidden">
+
+      <div className="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold tracking-wider mb-4 border border-emerald-500/30">
+        ABOUT THIS TREK
+      </div>
+
+      <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight break-words">
+        Why Choose{" "}
+        <span className="text-emerald-400 break-all">
+          {trek.name}
+        </span>
+        ?
+      </h2>
+
+      <p className="text-gray-300 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base lg:text-lg break-words whitespace-pre-wrap">
+        {trek.description}
+      </p>
+
+      <div className="border-t border-white/10 pt-6">
+        <h3 className="text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2 flex-wrap">
+          <span className="w-1 h-6 bg-emerald-500 rounded-full flex-shrink-0"></span>
+          <span>Expedition Highlights</span>
+        </h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+          {trek.highlights.map((item, i) => (
+            <div
+              key={i}
+              className="flex items-start gap-2 bg-white/5 p-3 rounded-xl min-w-0"
+            >
+              <span className="text-emerald-400 text-lg sm:text-xl flex-shrink-0 mt-0.5">
+                ✓
+              </span>
+
+              <span className="text-gray-200 text-sm sm:text-base break-all min-w-0">
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
         {/* ════════════════════════════════════════════════════════════════════
              INCLUDED / EXCLUDED – GLASS CARDS (RESPONSIVE)
         ════════════════════════════════════════════════════════════════════ */}
